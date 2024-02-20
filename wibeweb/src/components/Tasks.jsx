@@ -1,0 +1,81 @@
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+
+const Tasks = (props) => {
+    const [completed, setCompleted] = useState(false);
+
+    const toggleCompleted = () => {
+        setCompleted(!completed);
+    };
+
+    return (
+     <View>
+            <TouchableOpacity
+                style={styles.item}
+                onPress={toggleCompleted}>
+                <View style={[styles.taskItems, { opacity: completed ? 0.3 : 1 }]}>
+                    <View style={[styles.tickBox, completed && styles.tickBoxCompleted]}></View>
+                    <Text style={[styles.itemText, { opacity: completed ? 0.5 : 1 }]}>{props.text}</Text>
+
+                    <TouchableOpacity style={styles.deleteItem} onPress={props.onDelete}>
+                        <Image style={[styles.deleteIcon, { tintColor: completed ? "red" : "gray" }]} source={require('../assets/trash.png')} />
+                    </TouchableOpacity>
+                </View>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    item: {
+        backgroundColor: "rgb(160,160,160)",
+        padding: 15,
+        borderRadius: 10,
+        marginBottom: 5,
+        margin: 10,
+        width: 600, 
+    },
+    taskItems: {
+        flexDirection: "row",
+        alignItems: "center",
+        flexWrap: "wrap",
+
+    },
+    tickBox: {
+        width: 24,
+        height: 24,
+        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: 'black',
+        marginRight: 10,
+    },
+    tickBoxCompleted: {
+        backgroundColor: 'gray',
+    },
+    itemText: {
+        flex: 1,
+        fontSize:20,
+        overflow: 'visible',
+        overflowWrap: 'anywhere',
+
+    },
+    deleteItem: {
+        marginLeft: 'auto',
+        tintColor: "red"
+    },
+    deleteIcon: {
+        tintColor: "rgb(134,134,134)",
+        width: 25,
+        height: 25
+    }
+});
+
+  
+ 
+ 
+    export default Tasks;
