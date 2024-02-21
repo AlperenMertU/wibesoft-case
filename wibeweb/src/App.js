@@ -21,13 +21,13 @@ const styles = {
     justifyContent: 'center',
     marginTop: 20,
     display: 'flex',
-    flexDirection: 'column', // Sütun düzeni
-    alignItems: 'center', // Öğeleri dikey olarak ortalar
+    flexDirection: 'column', 
+    alignItems: 'center', 
   },
   logo: {
-    color: 'red', // Yazı rengi
-    textAlign: 'center', // Yatay hizalama
-    marginBottom: 20, // Alt boşluk
+    color: 'red', 
+    textAlign: 'center', 
+    marginBottom: 20, 
   },
   listContainer: {
     paddingTop: 20,

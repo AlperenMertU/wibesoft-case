@@ -1,12 +1,19 @@
+
+
+//her bir görevimizin oluşturulduğu component, burada text değerini, style, tamamlanma, silme olaylarının olduğu kısım 
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
+//NewTask.js den List.jsx'e ordan buraya text değeri geliyor ve bu prop yardımıyla text değerini alıyoruz.
 const Tasks = (props) => {
+     
+    //burası görevdeki kutucuğa veya üstüne batığımız zaman tamamlanıp tamamlanmadığının kontrolünü yapıyor ve ona göre style ayarlıyor
     const [completed, setCompleted] = useState(false);
-
     const toggleCompleted = () => {
         setCompleted(!completed);
     };
+
+    
 
     return (
      <View>
